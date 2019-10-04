@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>rooms list</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>room number</th>
+        <th>location</th>
+
+
+    </tr>
+    <tr th:each="rooms: ${roomss}">
+        <td th:text="${rooms.roomNo}"></td>
+        <td th:text="${rooms.location}"></td>
+        <td><a th:href="@{'/rooms/edit/'+${rooms.id} }"> Edit</a></td>
+        <td>
+            <form th:action="@{'/rooms/delete/'+${rooms.id}" method="post">
+                <button type="submit" onclick="return confirm('do you really want to delete?')">delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

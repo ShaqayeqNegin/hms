@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>rooms form</title>
+</head>
+<body>
+<form th:action="@{roomss/register}" method="post" th:object="$rooms">
+    room number: <input type="text" th:field="*{roomNo}"/> <br/>
+    location: <input type="text" th:field="*{location}"/> <br/>
+
+    <button type="submit"> Register</button>
+</form>
+
+<button> submit</button>
+</body>
+</html>

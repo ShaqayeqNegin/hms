@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta charset="UTF-8">
+    <title>doctor form</title>
+</head>
+<body>
+<form th:action="@{doctor/register}" method="post" th:object="$doctor">
+    <input type="hidden" th:field="*{id}">
+    Name: <input type="text" th:field="*{name}"/> <br/>
+    Department: <input type="text" th:field="*{dept}"/> <br/>
+    Specialization: <input type="text" th:field="*{specialization}"/> <br/>
+    phone number: <input type="text" th:field="*{phoneNo}"/> <br/>
+    location: <input type="text" th:field="*{location}"/> <br/>
+    <button type="submit"> Register</button>
+</form>
+
+
+</body>
+</html>

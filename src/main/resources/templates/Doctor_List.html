@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor list</title>
+</head>
+<body>
+
+
+<h2><a th:href="@{/doctor/register}"> add doctor</a></h2>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>name</th>
+        <th>dept</th>
+        <th>specialization</th>
+        <th>phone number</th>
+        <th>location</th>
+        <th colspan="2">action</th>
+
+
+    </tr>
+    <tr th:each="doctor: ${doctors}">
+        <td th:text="${doctor.docId}"></td>
+        <td th:text="${doctor.name}"></td>
+        <td th:text="${doctor.dept}"></td>
+        <td th:text="${doctor.phoneNo}"></td>
+        <td th:text="${doctor.location}"></td>
+        <td><a th:href="@{'/doctor/edit/'+${doctor.id} }"> Edit</a></td>
+        <td>
+            <form th:action="@{'/doctor/delete/'+${doctor.id}" method="post">
+                <button type="submit" onclick="return confirm('do you really want to delete?')">delete</button>
+            </form>
+        </td>
+
+
+
+    </tr>
+</table>
+</body>
+</html>

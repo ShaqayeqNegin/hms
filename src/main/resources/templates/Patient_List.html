@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>patient list</title>
+</head>
+<body>
+
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>name</th>
+        <th>phone number</th>
+        <th>address</th>
+        <th>age</th>
+        <th>sex</th>
+        <th>room number</th>
+
+
+    </tr>
+    <tr th:each="patient: ${patients}">
+        <td th:text="${patient.patientId}"></td>
+        <td th:text="${patient.patientName}"></td>
+        <td th:text="${patient.phoneNo}"></td>
+        <td th:text="${patient.address}"></td>
+        <td th:text="${patient.age}"></td>
+        <td th:text="${patient.sex}"></td>
+        <td th:text="${patient.roomNo}"></td>
+        <td><a th:href="@{'/patient/edit/'+${patient.id} }"> Edit</a></td>
+        <td>
+            <form th:action="@{'/patient/delete/'+${patient.id}" method="post">
+                <button type="submit" onclick="return confirm('do you really want to delete?')">delete</button>
+            </form>
+        </td>
+
+
+    </tr>
+</table>
+</body>
+</html>

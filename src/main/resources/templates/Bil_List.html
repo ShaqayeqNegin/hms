@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Bill list</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>Bill Number</th>
+        <th>patient Name</th>
+
+
+    </tr>
+    <tr th:each="doctor: ${bills}">
+        <td th:text="${bill.billNo}"></td>
+        <td th:text="${bill.patientName}"></td>
+        <td><a th:href="@{'/bill/edit/'+${bill.id} }"> Edit</a></td>
+        <td>
+            <form th:action="@{'/bill/delete/'+${bill.id}" method="post">
+                <button type="submit" onclick="return confirm('do you really want to delete?')">delete</button>
+            </form>
+        </td>
+
+    </tr>
+</table>
+
+</body>
+</html>

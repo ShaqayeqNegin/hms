@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Bill form</title>
+</head>
+<body>
+<form th:action="@{bill/register}" method="post" th:object="$bill">
+    Bill Number: <input type="text" th:field="*{billNo}"/> <br/>
+    patient Name: <input type="text" th:field="*{patientName}"/> <br/>
+
+    <button type="submit"> Register</button>
+</form>
+
+
+</body>
+</html>

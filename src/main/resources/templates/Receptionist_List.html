@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>receptionist list</title>
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>name</th>
+
+
+    </tr>
+    <tr th:each="recepitonist: ${receptionists}">
+        <td th:text="${receptionist.receptionId}"></td>
+        <td th:text="${receptionist.name}"></td>
+        <td><a th:href="@{'/receptionist/edit/'+${receptionist.id} }"> Edit</a></td>
+        <td>
+            <form th:action="@{'/receptionist/delete/'+${receptionist.id}" method="post">
+                <button type="submit" onclick="return confirm('do you really want to delete?')">delete</button>
+            </form>
+        </td>
+
+
+    </tr>
+</table>
+
+</body>
+</html>

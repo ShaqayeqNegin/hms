@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>dept list</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>department ID</th>
+        <th>department Name</th>
+
+    </tr>
+    <tr th:each="dept: ${depts}">
+        <td th:text="${dept.deptId}"></td>
+        <td th:text="${dept.name}"></td>
+        <td><a th:href="@{'/dept/edit/'+${dept.id} }"> Edit</a></td>
+        <td>
+            <form th:action="@{'/dept/delete/'+${dept.id}" method="post">
+                <button type="submit" onclick="return confirm('do you really want to delete?')">delete</button>
+            </form>
+        </td>
+
+
+    </tr>
+</table>
+
+</body>
+</html>
